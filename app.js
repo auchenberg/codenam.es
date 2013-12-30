@@ -121,7 +121,10 @@
 
     function onClick() {
         elmMain.classList.toggle('active');
-        elmHeader.innerHTML = generate();
+
+        if(elmMain.classList.contains('active')) {
+            elmHeader.innerHTML = generate();
+        }
     }
 
     elmMain.addEventListener('click', onClick, false);
