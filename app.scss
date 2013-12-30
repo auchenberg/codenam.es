@@ -21,7 +21,7 @@
 
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
-      box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html, body {
@@ -44,6 +44,13 @@ body {
   justify-content: center;
 }
 
+.main {
+  cursor: pointer;
+  position: relative;
+  -moz-perspective: 1000;
+       perspective: 1000;
+}
+
 .main text {
   font-family: COURIER;
   text-transform: uppercase;
@@ -52,22 +59,19 @@ body {
   color: #000;
 }
 
-.main svg { position: absolute; left: -50px; top: -26px; width: 625px; height: 100%; }
-
-
-.main {
-  position: relative;
-}
-
-.main {
-  cursor: pointer;
-  perspective: 1000;
-  -webkit-transform: translatez(0);
+.main svg {
+  position: absolute;
+  left: -50px;
+  top: -26px;
+  width: 625px;
+  height: 100%;
 }
 
 /* flip the pane when hovered */
 .main.active .flipper {
   -webkit-transform: rotateY(180deg);
+     -moz-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
 .main, .front, .back {
@@ -78,8 +82,10 @@ body {
 /* flip speed goes here */
 .flipper {
   transition: 1s;
-  transform-style: preserve-3d;
+
   -webkit-transform-style: preserve-3d;
+     -moz-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 
   position: relative;
   border: 8px solid #dfae35;
@@ -112,6 +118,7 @@ body {
 .back {
 
   -webkit-transform: rotateY(180deg);
+     -moz-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
 
@@ -215,6 +222,7 @@ body {
     top: 0;
 
     -webkit-transform-origin: bottom center;
-    transform-origin: bottom center;
+       -moz-transform-origin: bottom center;
+            transform-origin: bottom center;
   }
 }
