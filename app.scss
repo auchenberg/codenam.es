@@ -27,6 +27,7 @@
 html, body {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 
   display: flex;
   align-items: center;
@@ -36,6 +37,7 @@ html, body {
 body {
   color: #fff;
   background: #111;
+  min-width: 650px;
 }
 
 .center {
