@@ -1,0 +1,220 @@
+@import 'compass';
+
+@mixin rotated-text($num-letters: 22, $angle-span: 180deg, $angle-offset: -95deg) {
+    $angle-per-char: $angle-span / $num-letters;
+    @for $i from 1 through $num-letters {
+        .char#{$i} {
+            @include transform(rotate($angle-offset + $angle-per-char * $i))
+        }
+    }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  vertical-align: baseline;
+
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  color: #fff;
+  background: #111;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main text {
+  font-family: COURIER;
+  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: bold;
+  color: #000;
+}
+
+.main svg { position: absolute; left: -50px; top: -26px; width: 625px; height: 100%; }
+
+
+.main {
+  position: relative;
+}
+
+.main {
+  cursor: pointer;
+  perspective: 1000;
+  -webkit-transform: translatez(0);
+}
+
+/* flip the pane when hovered */
+.main.active .flipper {
+  -webkit-transform: rotateY(180deg);
+}
+
+.main, .front, .back {
+  width: 600px;
+  height: 600px;
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 1s;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+
+  position: relative;
+  border: 8px solid #dfae35;
+  border-radius: 600px;
+  background: #fff;
+
+  height: 600px;
+  width: 600px;
+
+}
+
+/* hide back of pane during swap */
+.front, .back {
+
+  -webkit-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+          backface-visibility: hidden;
+
+  position: absolute;
+  top: -8px;
+  left: -7px;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.inner-circle {
+  background: #114471;
+
+  border: 5px solid #dfae35;
+  border-radius: 500px;
+  height: 480px;
+  width: 480px;
+}
+
+.inner-circle .seal {
+  background: url(images/eagle.svg); /* Credits http://commons.wikimedia.org/wiki/File:Eagle_of_Saladin_blank.svg */
+  background-size: cover;
+
+  width: 300px;
+  height: 400px;
+}
+
+.codename {
+  color: #111;
+
+  width: 500px;
+  margin-top: -125px;
+
+  text-align: center;
+  font-family: COURIER;
+  text-transform: uppercase;
+}
+
+.codename h2 {
+  font-size: 30px;
+}
+
+.codename h1 {
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+
+.codename .secret {
+  margin-bottom: 20px;
+}
+
+.slides {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  text-align: center;
+
+  width: 300px;
+  margin-left: -150px;
+}
+
+
+.slides a {
+  color: #000;
+  font-family: COURIER;
+  text-transform: uppercase;
+}
+
+.slides img {
+  margin-top: 20px;
+  width: 100px;
+  border: 1px solid #000;
+}
+
+.social {
+  position: fixed;
+  bottom: 20px;
+  right: 0;
+}
+
+.social div {
+  margin-right: 20px;
+}
+
+
+.letters {
+  position: absolute;
+  top: 10px;
+  left: 288px;
+  width: 600px;
+  height: 600px;
+
+  font-family: COURIER;
+
+  @include rotated-text;
+
+  & span {
+    height: 292px;
+    width: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #000;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    -webkit-transform-origin: bottom center;
+    transform-origin: bottom center;
+  }
+}
