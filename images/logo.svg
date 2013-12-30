@@ -1,0 +1,60 @@
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="800" height="800" viewBox="0 0 60 60">
+	<style>
+
+	@ximport url(http://fonts.googleapis.com/css?family=Raleway);
+	@namespace xlink 'http://www.w3.org/1999/xlink';
+
+	text {
+		font: bold 6px Raleway, 'Helvetica Neue', sans-serif;
+		stroke-width: .25;
+		stroke-linejoin: round;
+	}
+
+	text .bull {
+		fill-opacity: .4
+		stroke: none;
+		stroke-width:0;
+	}
+
+	.sticker { fill:white; }
+
+	use[xlink|href="#inner"] { fill: #114471 }
+	use[xlink|href="#background"] { fill:white; stroke:#dfae35 }
+
+	use[xlink|href="#text"] { stroke: #000; fill: #000; }
+
+	</style>
+
+	<defs>
+
+		<g id="logo" transform="scale(.6) translate(20,17)">
+			<g transform="scale(-1,1) translate(-80,-30)">
+				<image x="10" y="20" width="80" height="80" xlink:href="eagle.svg" />
+			</g>
+		</g>
+
+		<circle id="background" r="50%" cx="50%" cy="50%" />
+		<circle id="inner" r="30%" cx="30%" cy="30%"  transform="scale(.6) translate(20,17)"/>
+
+		<path d="m 125.336,218.959 c 51.746,0 93.699,-41.95 93.699,-93.698 0,-51.749 -41.953,-93.7 -93.699,-93.7 -51.744,0 -93.701,41.951 -93.701,93.7 10e-4,51.748 41.957,93.698 93.701,93.698 z" id="path11" style="fill:#124471;stroke:none"  />
+
+		<path id="textpath" d="M4.5,30 a25.5,25.5 0 1,1 0,.001" />
+		<text id="text" transform="rotate(90) translate(0,-60)">
+			<textPath spacing="auto" xlink:href="#textpath">
+				<tspan class="bull">•</tspan>
+				<tspan>NSA CODENAME GENERATOR</tspan>
+				<tspan class="bull">•</tspan>
+			</textPath>
+		</text>
+
+					<tspan>Click to generate</tspan>
+	</defs>
+
+	<g id="design4" class="sticker">
+		<use xlink:href="#background" />
+		<use xlink:href="#logo" />
+		<use xlink:href="#text" />
+	</g>
+
+</svg>
