@@ -16,18 +16,20 @@
 html, body {
   height: 100%;
   width: 100%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* line 36, app.scss */
+/* line 37, app.scss */
 body {
   color: #fff;
   background: #111;
+  min-width: 650px;
 }
 
-/* line 41, app.scss */
+/* line 43, app.scss */
 .center {
   display: flex;
   align-items: center;
@@ -35,6 +37,14 @@ body {
 }
 
 /* line 49, app.scss */
+.main {
+  cursor: pointer;
+  position: relative;
+  -moz-perspective: 1000;
+  perspective: 1000;
+}
+
+/* line 56, app.scss */
 .main text {
   font-family: COURIER;
   text-transform: uppercase;
@@ -43,7 +53,7 @@ body {
   color: #000;
 }
 
-/* line 57, app.scss */
+/* line 64, app.scss */
 .main svg {
   position: absolute;
   left: -50px;
@@ -52,35 +62,27 @@ body {
   height: 100%;
 }
 
-/* line 60, app.scss */
-.main {
-  position: relative;
-}
-
-/* line 64, app.scss */
-.main {
-  perspective: 1000;
-  -webkit-transform: translatez(0);
-}
-
 /* flip the pane when hovered */
-/* line 70, app.scss */
+/* line 73, app.scss */
 .main.active .flipper {
   -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-/* line 74, app.scss */
+/* line 79, app.scss */
 .main, .front, .back {
   width: 600px;
   height: 600px;
 }
 
 /* flip speed goes here */
-/* line 80, app.scss */
+/* line 85, app.scss */
 .flipper {
   transition: 1s;
-  transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   position: relative;
   border: 8px solid #dfae35;
   border-radius: 600px;
@@ -90,7 +92,7 @@ body {
 }
 
 /* hide back of pane during swap */
-/* line 96, app.scss */
+/* line 103, app.scss */
 .front, .back {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -101,24 +103,20 @@ body {
 }
 
 /* front pane, placed above back */
-/* line 108, app.scss */
+/* line 115, app.scss */
 .front {
   z-index: 2;
 }
 
 /* back, initially hidden pane */
-/* line 113, app.scss */
+/* line 120, app.scss */
 .back {
   -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
-/* line 119, app.scss */
-.main:hover {
-  cursor: pointer;
-}
-
-/* line 124, app.scss */
+/* line 127, app.scss */
 .inner-circle {
   background: #114471;
   border: 5px solid #dfae35;
@@ -127,7 +125,7 @@ body {
   width: 480px;
 }
 
-/* line 133, app.scss */
+/* line 136, app.scss */
 .inner-circle .seal {
   background: url(images/eagle.svg);
   /* Credits http://commons.wikimedia.org/wiki/File:Eagle_of_Saladin_blank.svg */
@@ -136,7 +134,7 @@ body {
   height: 400px;
 }
 
-/* line 141, app.scss */
+/* line 144, app.scss */
 .codename {
   color: #111;
   width: 500px;
@@ -146,12 +144,12 @@ body {
   text-transform: uppercase;
 }
 
-/* line 152, app.scss */
+/* line 155, app.scss */
 .codename h2 {
   font-size: 30px;
 }
 
-/* line 156, app.scss */
+/* line 159, app.scss */
 .codename h1 {
   font-size: 50px;
   font-weight: bold;
@@ -159,12 +157,12 @@ body {
   text-transform: uppercase;
 }
 
-/* line 163, app.scss */
+/* line 166, app.scss */
 .codename .secret {
   margin-bottom: 20px;
 }
 
-/* line 167, app.scss */
+/* line 170, app.scss */
 .slides {
   position: absolute;
   bottom: 50px;
@@ -174,33 +172,33 @@ body {
   margin-left: -150px;
 }
 
-/* line 178, app.scss */
+/* line 181, app.scss */
 .slides a {
   color: #000;
   font-family: COURIER;
   text-transform: uppercase;
 }
 
-/* line 184, app.scss */
+/* line 187, app.scss */
 .slides img {
   margin-top: 20px;
   width: 100px;
   border: 1px solid #000;
 }
 
-/* line 190, app.scss */
+/* line 193, app.scss */
 .social {
   position: fixed;
   bottom: 20px;
   right: 0;
 }
 
-/* line 196, app.scss */
+/* line 199, app.scss */
 .social div {
   margin-right: 20px;
 }
 
-/* line 201, app.scss */
+/* line 204, app.scss */
 .letters {
   position: absolute;
   top: 10px;
@@ -385,7 +383,7 @@ body {
   -o-transform: rotate(85deg);
   transform: rotate(85deg);
 }
-/* line 212, app.scss */
+/* line 215, app.scss */
 .letters span {
   height: 292px;
   width: 20px;
@@ -396,5 +394,6 @@ body {
   left: 0;
   top: 0;
   -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
   transform-origin: bottom center;
 }
