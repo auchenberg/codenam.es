@@ -1,3 +1,4 @@
+/* line 13, app.scss */
 * {
   margin: 0;
   padding: 0;
@@ -6,103 +7,394 @@
   font: inherit;
   color: inherit;
   vertical-align: baseline;
-
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-      box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
+/* line 27, app.scss */
 html, body {
   height: 100%;
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* line 36, app.scss */
 body {
   color: #fff;
   background: #111;
 }
 
+/* line 41, app.scss */
 .center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* line 49, app.scss */
+.main text {
+  font-family: COURIER;
+  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* line 57, app.scss */
+.main svg {
+  position: absolute;
+  left: -50px;
+  top: -26px;
+  width: 625px;
+  height: 100%;
+}
+
+/* line 60, app.scss */
 .main {
+  position: relative;
+}
+
+/* line 64, app.scss */
+.main {
+  perspective: 1000;
+  -webkit-transform: translatez(0);
+}
+
+/* flip the pane when hovered */
+/* line 70, app.scss */
+.main.active .flipper {
+  -webkit-transform: rotateY(180deg);
+}
+
+/* line 74, app.scss */
+.main, .front, .back {
+  width: 600px;
+  height: 600px;
+}
+
+/* flip speed goes here */
+/* line 80, app.scss */
+.flipper {
+  transition: 1s;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  position: relative;
   border: 8px solid #dfae35;
   border-radius: 600px;
   background: #fff;
   height: 600px;
   width: 600px;
-
-  transition: all 1s;
 }
 
+/* hide back of pane during swap */
+/* line 96, app.scss */
+.front, .back {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: -8px;
+  left: -7px;
+}
+
+/* front pane, placed above back */
+/* line 108, app.scss */
+.front {
+  z-index: 2;
+}
+
+/* back, initially hidden pane */
+/* line 113, app.scss */
+.back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* line 119, app.scss */
 .main:hover {
   cursor: pointer;
 }
 
-.main.active {
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg);
-}
-
-.main.active .front {
-  display: none;
-}
-
-.main.active .codename {
-  display: block;
-}
-
-.main .front,
-.main .back {
-  height: 100%;
-}
-
+/* line 124, app.scss */
 .inner-circle {
   background: #114471;
-
   border: 5px solid #dfae35;
   border-radius: 500px;
-  height: 500px;
-  width: 500px;
+  height: 480px;
+  width: 480px;
 }
 
+/* line 133, app.scss */
 .inner-circle .seal {
-  background: url(eagle.svg); /* Credits http://commons.wikimedia.org/wiki/File:Eagle_of_Saladin_blank.svg */
+  background: url(images/eagle.svg);
+  /* Credits http://commons.wikimedia.org/wiki/File:Eagle_of_Saladin_blank.svg */
   background-size: cover;
-
   width: 300px;
   height: 400px;
 }
 
+/* line 141, app.scss */
 .codename {
-  display: none;
   color: #111;
-
   width: 500px;
-
+  margin-top: -125px;
   text-align: center;
   font-family: COURIER;
   text-transform: uppercase;
-
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg);
-
 }
 
+/* line 152, app.scss */
 .codename h2 {
   font-size: 30px;
 }
 
+/* line 156, app.scss */
 .codename h1 {
   font-size: 50px;
   font-weight: bold;
   line-height: 100%;
   text-transform: uppercase;
+}
+
+/* line 163, app.scss */
+.codename .secret {
+  margin-bottom: 20px;
+}
+
+/* line 167, app.scss */
+.slides {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  text-align: center;
+  width: 300px;
+  margin-left: -150px;
+}
+
+/* line 178, app.scss */
+.slides a {
+  color: #000;
+  font-family: COURIER;
+  text-transform: uppercase;
+}
+
+/* line 184, app.scss */
+.slides img {
+  margin-top: 20px;
+  width: 100px;
+  border: 1px solid #000;
+}
+
+/* line 190, app.scss */
+.social {
+  position: fixed;
+  bottom: 20px;
+  right: 0;
+}
+
+/* line 196, app.scss */
+.social div {
+  margin-right: 20px;
+}
+
+/* line 201, app.scss */
+.letters {
+  position: absolute;
+  top: 10px;
+  left: 288px;
+  width: 600px;
+  height: 600px;
+  font-family: COURIER;
+}
+/* line 6, app.scss */
+.letters .char1 {
+  -webkit-transform: rotate(-86.81818deg);
+  -moz-transform: rotate(-86.81818deg);
+  -ms-transform: rotate(-86.81818deg);
+  -o-transform: rotate(-86.81818deg);
+  transform: rotate(-86.81818deg);
+}
+/* line 6, app.scss */
+.letters .char2 {
+  -webkit-transform: rotate(-78.63636deg);
+  -moz-transform: rotate(-78.63636deg);
+  -ms-transform: rotate(-78.63636deg);
+  -o-transform: rotate(-78.63636deg);
+  transform: rotate(-78.63636deg);
+}
+/* line 6, app.scss */
+.letters .char3 {
+  -webkit-transform: rotate(-70.45455deg);
+  -moz-transform: rotate(-70.45455deg);
+  -ms-transform: rotate(-70.45455deg);
+  -o-transform: rotate(-70.45455deg);
+  transform: rotate(-70.45455deg);
+}
+/* line 6, app.scss */
+.letters .char4 {
+  -webkit-transform: rotate(-62.27273deg);
+  -moz-transform: rotate(-62.27273deg);
+  -ms-transform: rotate(-62.27273deg);
+  -o-transform: rotate(-62.27273deg);
+  transform: rotate(-62.27273deg);
+}
+/* line 6, app.scss */
+.letters .char5 {
+  -webkit-transform: rotate(-54.09091deg);
+  -moz-transform: rotate(-54.09091deg);
+  -ms-transform: rotate(-54.09091deg);
+  -o-transform: rotate(-54.09091deg);
+  transform: rotate(-54.09091deg);
+}
+/* line 6, app.scss */
+.letters .char6 {
+  -webkit-transform: rotate(-45.90909deg);
+  -moz-transform: rotate(-45.90909deg);
+  -ms-transform: rotate(-45.90909deg);
+  -o-transform: rotate(-45.90909deg);
+  transform: rotate(-45.90909deg);
+}
+/* line 6, app.scss */
+.letters .char7 {
+  -webkit-transform: rotate(-37.72727deg);
+  -moz-transform: rotate(-37.72727deg);
+  -ms-transform: rotate(-37.72727deg);
+  -o-transform: rotate(-37.72727deg);
+  transform: rotate(-37.72727deg);
+}
+/* line 6, app.scss */
+.letters .char8 {
+  -webkit-transform: rotate(-29.54545deg);
+  -moz-transform: rotate(-29.54545deg);
+  -ms-transform: rotate(-29.54545deg);
+  -o-transform: rotate(-29.54545deg);
+  transform: rotate(-29.54545deg);
+}
+/* line 6, app.scss */
+.letters .char9 {
+  -webkit-transform: rotate(-21.36364deg);
+  -moz-transform: rotate(-21.36364deg);
+  -ms-transform: rotate(-21.36364deg);
+  -o-transform: rotate(-21.36364deg);
+  transform: rotate(-21.36364deg);
+}
+/* line 6, app.scss */
+.letters .char10 {
+  -webkit-transform: rotate(-13.18182deg);
+  -moz-transform: rotate(-13.18182deg);
+  -ms-transform: rotate(-13.18182deg);
+  -o-transform: rotate(-13.18182deg);
+  transform: rotate(-13.18182deg);
+}
+/* line 6, app.scss */
+.letters .char11 {
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  -o-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+/* line 6, app.scss */
+.letters .char12 {
+  -webkit-transform: rotate(3.18182deg);
+  -moz-transform: rotate(3.18182deg);
+  -ms-transform: rotate(3.18182deg);
+  -o-transform: rotate(3.18182deg);
+  transform: rotate(3.18182deg);
+}
+/* line 6, app.scss */
+.letters .char13 {
+  -webkit-transform: rotate(11.36364deg);
+  -moz-transform: rotate(11.36364deg);
+  -ms-transform: rotate(11.36364deg);
+  -o-transform: rotate(11.36364deg);
+  transform: rotate(11.36364deg);
+}
+/* line 6, app.scss */
+.letters .char14 {
+  -webkit-transform: rotate(19.54545deg);
+  -moz-transform: rotate(19.54545deg);
+  -ms-transform: rotate(19.54545deg);
+  -o-transform: rotate(19.54545deg);
+  transform: rotate(19.54545deg);
+}
+/* line 6, app.scss */
+.letters .char15 {
+  -webkit-transform: rotate(27.72727deg);
+  -moz-transform: rotate(27.72727deg);
+  -ms-transform: rotate(27.72727deg);
+  -o-transform: rotate(27.72727deg);
+  transform: rotate(27.72727deg);
+}
+/* line 6, app.scss */
+.letters .char16 {
+  -webkit-transform: rotate(35.90909deg);
+  -moz-transform: rotate(35.90909deg);
+  -ms-transform: rotate(35.90909deg);
+  -o-transform: rotate(35.90909deg);
+  transform: rotate(35.90909deg);
+}
+/* line 6, app.scss */
+.letters .char17 {
+  -webkit-transform: rotate(44.09091deg);
+  -moz-transform: rotate(44.09091deg);
+  -ms-transform: rotate(44.09091deg);
+  -o-transform: rotate(44.09091deg);
+  transform: rotate(44.09091deg);
+}
+/* line 6, app.scss */
+.letters .char18 {
+  -webkit-transform: rotate(52.27273deg);
+  -moz-transform: rotate(52.27273deg);
+  -ms-transform: rotate(52.27273deg);
+  -o-transform: rotate(52.27273deg);
+  transform: rotate(52.27273deg);
+}
+/* line 6, app.scss */
+.letters .char19 {
+  -webkit-transform: rotate(60.45455deg);
+  -moz-transform: rotate(60.45455deg);
+  -ms-transform: rotate(60.45455deg);
+  -o-transform: rotate(60.45455deg);
+  transform: rotate(60.45455deg);
+}
+/* line 6, app.scss */
+.letters .char20 {
+  -webkit-transform: rotate(68.63636deg);
+  -moz-transform: rotate(68.63636deg);
+  -ms-transform: rotate(68.63636deg);
+  -o-transform: rotate(68.63636deg);
+  transform: rotate(68.63636deg);
+}
+/* line 6, app.scss */
+.letters .char21 {
+  -webkit-transform: rotate(76.81818deg);
+  -moz-transform: rotate(76.81818deg);
+  -ms-transform: rotate(76.81818deg);
+  -o-transform: rotate(76.81818deg);
+  transform: rotate(76.81818deg);
+}
+/* line 6, app.scss */
+.letters .char22 {
+  -webkit-transform: rotate(85deg);
+  -moz-transform: rotate(85deg);
+  -ms-transform: rotate(85deg);
+  -o-transform: rotate(85deg);
+  transform: rotate(85deg);
+}
+/* line 212, app.scss */
+.letters span {
+  height: 292px;
+  width: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transform-origin: bottom center;
+  transform-origin: bottom center;
 }
