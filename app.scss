@@ -67,6 +67,10 @@ body {
           transform: rotateY(180deg);
 }
 
+.main .front {
+  cursor: pointer;
+}
+
 .main, .front, .back {
   width: 600px;
   height: 600px;
@@ -109,6 +113,8 @@ body {
 
 /* back, initially hidden pane */
 .back {
+
+  z-index: 1;
 
   -webkit-transform: rotateY(180deg);
      -moz-transform: rotateY(180deg);

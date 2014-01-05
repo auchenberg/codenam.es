@@ -118,8 +118,13 @@
 
     var elmHeader = document.querySelector('.main h1');
     var elmMain = document.querySelector('.main');
+    var elmFront = document.querySelector('.main .front');
 
-    function onClick() {
+    function onClick(e) {
+
+        console.log('e.currentTarget', e.currentTarget);
+        console.log('e.target', e.target);
+
         elmMain.classList.toggle('active');
 
         if(elmMain.classList.contains('active')) {
@@ -127,7 +132,7 @@
         }
     }
 
-    elmMain.addEventListener('click', onClick, false);
+    elmFront.addEventListener('click', onClick, false);
 
 })();
 
