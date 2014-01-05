@@ -1,107 +1,29 @@
 (function () {
 
-     // NSA Codename sources;
-     // - http://www.linkedin.com/pub/jason-miller/39/741/a49
-     // - https://www.schneier.com/blog/archives/2013/10/code_names_for.html
-     // - http://en.wikipedia.org/wiki/Terrorist_Surveillance_Program
+    var projectsList = [];
 
-    var projectsList = [
-        'ANCHORY',
-        'AMHS',
-        'NUCLEON',
-        'TRAFFIC',
-        'THIEF',
-        'ARC',
-        'MAP',
-        'SIG',
-        'NAV',
-        'COAST',
-        'LINE',
-        'DISH',
-        'FIRE',
-        'FAST',
-        'SCOPE',
-        'OCTAVE',
-        'CONTRA',
-        'PIN',
-        'WALE',
-        'UTT',
-        'WEB',
-        'CANDID',
-        'MICHIGAN',
-        'PLUS',
-        'ASSOCIATION',
-        'MAIN',
-        'WAY',
-        'FASCIA',
-        'OCTSKY',
-        'WARD',
-        'INTE',
-        'LINK',
-        'METRICS',
-        'BANYAN',
-        'MARINA',
-        'HIGH',
-        'LANDS',
-        'VAGRANT',
-        'MAGNETIC',
-        'MINERAL',
-        'LIZE',
-        'OCEAN',
-        'LIFE',
-        'SAFER',
-        'GENIE',
-        'BLACK',
-        'HEART',
-        'DROP',
-        'MIRE',
-        'CUSTOMS',
-        'DEW',
-        'SWEEPER',
-        'RADON',
 
-        'ECHELON',
-        'MAIN',
-        'CORE',
-        'MINARET',
-        'SHAM',
-        'ROCK',
-        'PROMIS',
-        'BLARNEY',
-        'RAGTIME',
-        'Turbulence',
-        'PIN',
-        'WALE',
-        'MAIN',
-        'WAY',
-        'UP',
-        'STREAM',
-        'Room',
-        '641A',
-        'PRISM',
-        'Bound',
-        'less',
-        'Informant',
-        'X',
-        'Key',
-        'score',
-        'Dropmire',
-        'Fair',
-        'view',
-        'Surveillance',
-        'Detection',
-        'Unit',
-        'Bull',
-        'run',
-        'IMP',
-        'TEMPORE',
-        'Trail',
-        'blazer',
-        'Thin',
-        'Thread',
-        'STELLAR',
-        'WIND'
-    ];
+
+    function getJSON(url, successHandler, errorHandler) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', url, true);
+
+      xhr.onreadystatechange = function() {
+        var status;
+        var data;
+        if (xhr.readyState == 4) {
+          status = xhr.status;
+          if (status == 200) {
+            data = JSON.parse(xhr.responseText);
+            successHandler && successHandler(data);
+          } else {
+            errorHandler && errorHandler(status);
+          }
+        }
+      };
+
+      xhr.send();
+    }
 
     function generate() {
         var hash = [];
@@ -116,6 +38,11 @@
         return hash.join(separator);
     }
 
+    function initialize() {
+        getJSON('/js/data.json', function(data) {
+            projectsList = data;
+        });
+    }
     var elmHeader = document.querySelector('.main h1');
     var elmMain = document.querySelector('.main');
     var elmFront = document.querySelector('.main .front');
@@ -134,6 +61,7 @@
     }
 
     elmFront.addEventListener('click', onClick, false);
+    initialize();
 
 })();
 
