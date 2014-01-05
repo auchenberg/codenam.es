@@ -61,10 +61,17 @@ body {
 }
 
 /* flip the pane when hovered */
-.main.active .flipper {
-  -webkit-transform: rotateY(180deg);
-     -moz-transform: rotateY(180deg);
-          transform: rotateY(180deg);
+.main.active {
+
+  .flipper {
+    -webkit-transform: rotateY(180deg);
+       -moz-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+
+  .front {
+    display: none;
+  }
 }
 
 .main .front {
@@ -191,6 +198,7 @@ body {
   .download-slides {
     display: block;
     height: 120px;
+    text-align: center;
   }
 
 }
