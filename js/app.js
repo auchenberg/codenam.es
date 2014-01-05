@@ -2,6 +2,12 @@
 
     var projectsList = [];
 
+  function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
 
 
     function getJSON(url, successHandler, errorHandler) {
@@ -43,24 +49,59 @@
             projectsList = data;
         });
     }
+
+    function generateSlide(codeName) {
+
+          var elmCanvas = document.querySelector('.slide');
+          var ctx = elmCanvas.getContext('2d');
+          var img = new Image;
+          img.onload = function() {
+            elmCanvas.width = img.width;
+            elmCanvas.height = img.height;
+
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+
+            ctx.font = 'bold 12pt Times';
+            ctx.textAlign = 'center';
+            ctx.fillText(codeName.toUpperCase(), elmCanvas.width / 2, 210);
+
+
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];;
+            var date = new Date()
+            var currentMonth = months[date.getMonth()];
+
+            ctx.font = '8pt Times';
+            ctx.fillText(months[date.getMonth()] + ' ' + date.getFullYear(), elmCanvas.width / 2, 330);
+
+            // window.location = elmCanvas.toDataURL("image/jpeg");
+          };
+
+          img.src = '/images/slide-template-pp.jpg';
+
+
+    }
+
     var elmHeader = document.querySelector('.main h1');
     var elmMain = document.querySelector('.main');
-    var elmFront = document.querySelector('.main .front');
-    var elmDownloadLink = document.querySelector('.download-slides');
+    var elmStart = document.querySelector('.start');
+    var elmResult = document.querySelector('.result');
 
     function onClick() {
 
         elmMain.classList.toggle('active');
+        elmStart.classList.toggle('hidden');
+        elmResult.classList.toggle('hidden');
 
         if(elmMain.classList.contains('active')) {
 
             var codeName = generate();
-            elmHeader.innerHTML = codeName;
-            elmDownloadLink.href = '/slides.html?n=' + codeName;
+            generateSlide(codeName);
         }
     }
 
-    elmFront.addEventListener('click', onClick, false);
+    elmMain.addEventListener('click', onClick, false);
+
+
     initialize();
 
 })();

@@ -36,8 +36,12 @@ html, body {
 
 body {
   color: #fff;
-  background: #111;
+  background: #fbfbfb;
   min-width: 650px;
+}
+
+.hidden {
+  display: none;
 }
 
 .center {
@@ -47,9 +51,8 @@ body {
 }
 
 .main {
+  cursor: pointer;
   position: relative;
-  -moz-perspective: 1000;
-       perspective: 1000;
 }
 
 .main text {
