@@ -142,11 +142,15 @@ body {
   color: #111;
 
   width: 500px;
-  margin-top: -125px;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 70px;
 
   text-align: center;
   font-family: COURIER;
   text-transform: uppercase;
+
+
 }
 
 .codename h2 {
@@ -164,27 +168,31 @@ body {
   margin-bottom: 20px;
 }
 
+
 .slides {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
+
   text-align: center;
 
   width: 300px;
-  margin-left: -150px;
-}
+  margin: 0 auto;
 
+  a {
+    color: #000;
+    font-family: COURIER;
+    text-transform: uppercase;
+  }
 
-.slides a {
-  color: #000;
-  font-family: COURIER;
-  text-transform: uppercase;
-}
+  img {
+    margin-top: 20px;
+    width: 100px;
+    border: 1px solid #000;
+  }
 
-.slides img {
-  margin-top: 20px;
-  width: 100px;
-  border: 1px solid #000;
+  .download-slides {
+    display: block;
+    height: 120px;
+  }
+
 }
 
 .social {
@@ -224,4 +232,14 @@ body {
        -moz-transform-origin: bottom center;
             transform-origin: bottom center;
   }
+}
+
+
+.slide-preview {
+
+  .slide {
+    width: 700px;
+    height: 513px;
+  }
+
 }
