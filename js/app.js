@@ -60,9 +60,9 @@
 
             ctx.drawImage(img, 0, 0, img.width, img.height);
 
-            ctx.font = 'bold 12pt Times';
+            ctx.font = 'bold 18pt Times';
             ctx.textAlign = 'center';
-            ctx.fillText(codeName.toUpperCase(), elmCanvas.width / 2, 210);
+            ctx.fillText(codeName.toUpperCase(), elmCanvas.width / 2, 220);
 
 
             var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];;
