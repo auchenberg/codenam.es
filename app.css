@@ -27,27 +27,30 @@ body {
   color: #fff;
   background: #fbfbfb;
   min-width: 650px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
-/* line 43, app.scss */
+/* line 47, app.scss */
 .hidden {
   display: none;
 }
 
-/* line 47, app.scss */
+/* line 51, app.scss */
 .center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* line 53, app.scss */
+/* line 57, app.scss */
 .main {
   cursor: pointer;
   position: relative;
 }
 
-/* line 58, app.scss */
+/* line 62, app.scss */
 .main text {
   font-family: COURIER;
   text-transform: uppercase;
@@ -57,30 +60,30 @@ body {
 }
 
 /* flip the pane when hovered */
-/* line 69, app.scss */
+/* line 73, app.scss */
 .main.active .flipper {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
-/* line 75, app.scss */
+/* line 79, app.scss */
 .main.active .front {
   display: none;
 }
 
-/* line 80, app.scss */
+/* line 84, app.scss */
 .main .front {
   cursor: pointer;
 }
 
-/* line 84, app.scss */
+/* line 88, app.scss */
 .main, .front, .back {
   width: 600px;
   height: 600px;
 }
 
 /* flip speed goes here */
-/* line 90, app.scss */
+/* line 94, app.scss */
 .flipper {
   transition: 1s;
   -webkit-transform-style: preserve-3d;
@@ -95,7 +98,7 @@ body {
 }
 
 /* hide back of pane during swap */
-/* line 108, app.scss */
+/* line 112, app.scss */
 .front, .back {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -106,13 +109,13 @@ body {
 }
 
 /* front pane, placed above back */
-/* line 120, app.scss */
+/* line 124, app.scss */
 .front {
   z-index: 2;
 }
 
 /* back, initially hidden pane */
-/* line 125, app.scss */
+/* line 129, app.scss */
 .back {
   z-index: 1;
   -webkit-transform: rotateY(180deg);
@@ -120,7 +123,7 @@ body {
   transform: rotateY(180deg);
 }
 
-/* line 134, app.scss */
+/* line 138, app.scss */
 .inner-circle {
   background: #114471;
   border: 5px solid #dfae35;
@@ -129,7 +132,7 @@ body {
   width: 480px;
 }
 
-/* line 143, app.scss */
+/* line 147, app.scss */
 .inner-circle .seal {
   background: url(images/eagle.svg);
   /* Credits http://commons.wikimedia.org/wiki/File:Eagle_of_Saladin_blank.svg */
@@ -138,7 +141,7 @@ body {
   height: 400px;
 }
 
-/* line 151, app.scss */
+/* line 155, app.scss */
 .codename {
   color: #111;
   width: 500px;
@@ -150,12 +153,12 @@ body {
   text-transform: uppercase;
 }
 
-/* line 166, app.scss */
+/* line 170, app.scss */
 .codename h2 {
   font-size: 30px;
 }
 
-/* line 170, app.scss */
+/* line 174, app.scss */
 .codename h1 {
   font-size: 50px;
   font-weight: bold;
@@ -163,49 +166,49 @@ body {
   text-transform: uppercase;
 }
 
-/* line 177, app.scss */
+/* line 181, app.scss */
 .codename .secret {
   margin-bottom: 20px;
 }
 
-/* line 182, app.scss */
+/* line 186, app.scss */
 .slides {
   text-align: center;
   width: 300px;
   margin: 0 auto;
 }
-/* line 189, app.scss */
+/* line 193, app.scss */
 .slides a {
   color: #000;
   font-family: COURIER;
   text-transform: uppercase;
 }
-/* line 195, app.scss */
+/* line 199, app.scss */
 .slides img {
   margin-top: 20px;
   width: 100px;
   border: 1px solid #000;
 }
-/* line 201, app.scss */
+/* line 205, app.scss */
 .slides .download-slides {
   display: block;
   height: 120px;
   text-align: center;
 }
 
-/* line 209, app.scss */
+/* line 213, app.scss */
 .social {
   position: fixed;
   bottom: 20px;
   right: 0;
 }
 
-/* line 215, app.scss */
+/* line 219, app.scss */
 .social div {
   margin-right: 20px;
 }
 
-/* line 220, app.scss */
+/* line 224, app.scss */
 .letters {
   position: absolute;
   top: 10px;
@@ -390,7 +393,7 @@ body {
   -o-transform: rotate(85deg);
   transform: rotate(85deg);
 }
-/* line 231, app.scss */
+/* line 235, app.scss */
 .letters span {
   height: 292px;
   width: 20px;
@@ -405,7 +408,7 @@ body {
   transform-origin: bottom center;
 }
 
-/* line 251, app.scss */
+/* line 255, app.scss */
 .slide-preview .slide {
   width: 700px;
   height: 513px;

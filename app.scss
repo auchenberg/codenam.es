@@ -38,6 +38,10 @@ body {
   color: #fff;
   background: #fbfbfb;
   min-width: 650px;
+
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .hidden {
