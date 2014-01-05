@@ -119,16 +119,17 @@
     var elmHeader = document.querySelector('.main h1');
     var elmMain = document.querySelector('.main');
     var elmFront = document.querySelector('.main .front');
+    var elmDownloadLink = document.querySelector('.download-slides');
 
-    function onClick(e) {
-
-        console.log('e.currentTarget', e.currentTarget);
-        console.log('e.target', e.target);
+    function onClick() {
 
         elmMain.classList.toggle('active');
 
         if(elmMain.classList.contains('active')) {
-            elmHeader.innerHTML = generate();
+
+            var codeName = generate();
+            elmHeader.innerHTML = codeName;
+            elmDownloadLink.href = '/slides.html?n=' + codeName;
         }
     }
 
