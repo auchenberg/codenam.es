@@ -2,13 +2,12 @@
 
     var projectsList = [];
 
-  function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-      results = regex.exec(location.search);
-    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-  }
-
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+          results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
 
     function getJSON(url, successHandler, errorHandler) {
       var xhr = new XMLHttpRequest();
@@ -67,7 +66,7 @@
 
 
             var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];;
-            var date = new Date()
+            var date = new Date();
             var currentMonth = months[date.getMonth()];
 
             ctx.font = '8pt Times';
@@ -93,14 +92,12 @@
         elmResult.classList.toggle('hidden');
 
         if(elmMain.classList.contains('active')) {
-
             var codeName = generate();
             generateSlide(codeName);
         }
     }
 
     elmMain.addEventListener('click', onClick, false);
-
 
     initialize();
 
